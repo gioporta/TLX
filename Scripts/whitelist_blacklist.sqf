@@ -9,13 +9,11 @@ _uid = getPlayerUID player;
 
 A_LIST_DEVS     =
 [
-	"76561198093358722" // Giovanni
-];
-
-A_LIST_TESTERS =
-[
+	"76561198093358722", // Giovanni
 	"76561198065161712" //Stridey
 ];
+
+A_LIST_TESTERS = [];
 
 // Directors and Deputy Directors
 
