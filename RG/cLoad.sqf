@@ -14,29 +14,29 @@ vipmoneh = 1000000;
 private["_uid"];
 _uid = getPlayerUID player;
 
-if (_uid in supporters1) then {
-    startmoneh = supportermoneh;
-}
-else { if (_uid in supporters2) then {
-    startmoneh = silvermoneh;
-	INV_CarryingCapacity = 100;
-}
-else { if (_uid in supporters3) then {
-    startmoneh = goldmoneh;
-	INV_CarryingCapacity = 200;
-}
-else { if (_uid in supporters4) then {
-	INV_CarryingCapacity = 300;
-    startmoneh = platinummoneh;
-}
-else { if (_uid in supportersVIP) then {
-    startmoneh = VIPmoneh;
-	INV_CarryingCapacity = 500;
-};};};};};
+// if (_uid in supporters1) then {
+    // startmoneh = supportermoneh;
+// }
+// else { if (_uid in supporters2) then {
+    // startmoneh = silvermoneh;
+	// INV_CarryingCapacity = 100;
+// }
+// else { if (_uid in supporters3) then {
+    // startmoneh = goldmoneh;
+	// INV_CarryingCapacity = 200;
+// }
+// else { if (_uid in supporters4) then {
+	// INV_CarryingCapacity = 300;
+    // startmoneh = platinummoneh;
+// }
+// else { if (_uid in supportersVIP) then {
+    // startmoneh = VIPmoneh;
+	// INV_CarryingCapacity = 500;
+// };};};};};
 
-if (isAdmins) then {
-	INV_CarryingCapacity = 1000;
-};
+// if (isAdmins) then {
+	// INV_CarryingCapacity = 1000;
+// };
 
 //sleep 1;
 //player groupChat "Initializing Loading Player Stats If your stats has not yet loaded after this process please relog.";
