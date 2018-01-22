@@ -283,7 +283,7 @@ action104 = _role addaction ["Raise Gates","rgate6.sqf",[],1,false,true,"","isOp
 action105 = _role addaction ["Lower Gates","lgate9.sqf",[],1,false,true,"","isGov and player distance opforgate1 <= 5"];
 action106 = _role addaction ["Raise Gates","rgate7.sqf",[],1,false,true,"","isOpf and player distance opforgate3 <= 5"];
 action107 = _role addaction ["Lower Gates","lgate10.sqf",[],1,false,true,"","isGov and player distance opforgate3 <= 5"];
-action108 = _role addaction ["Lower Gates","lgate11.sqf",[],1,false,true,"","isOpf and player distance opforgateb <= 5"];
+//action108 = _role addaction ["Lower Gates","lgate11.sqf",[],1,false,true,"","isOpf and player distance opforgateb <= 5"];
 
 //========================   WAR COMMANDS  ================================================
 action121 = _role addaction ["Declare War against North", "Awesome\Functions\war_functions.sqf", ["start_war"], 1, false, true, "", "!warstatus && isOpforRanked && player distance atm5 < 20"];
