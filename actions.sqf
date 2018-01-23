@@ -269,21 +269,15 @@ action106 = _role addaction ["Raise Gates","rgate7.sqf",[],1,false,true,"","play
 action107 = _role addaction ["Lower Gates","lgate10.sqf",[],1,false,true,"","player distance opforgate3 <= 5"];
 action108 = _role addaction ["Lower Gates","lgate11.sqf",[],1,false,true,"","player distance opforgateb <= 5"];*/
 
-action94 = _role addaction ["Raise Gates","rgate2.sqf",[],1,false,true,"","isBlu and player distance copgate2 <= 5"];
-action95 = _role addaction ["Lower Gates","lgate2.sqf",[],1,false,true,"","isGov and player distance copgate2 <= 5"];
-action96 = _role addaction ["Raise Gates","rgate3.sqf",[],1,false,true,"","isBlu and player distance copgate3 <= 5"];
-action97 = _role addaction ["Lower Gates","lgate3.sqf",[],1,false,true,"","isGov and player distance copgate3 <= 5"];
-action98 = _role addaction ["Raise Gates","rgate4.sqf",[],1,false,true,"","isBlu and player distance copgate4 <= 5"];
-action99 = _role addaction ["Lower Gates","lgate4.sqf",[],1,false,true,"","isGov and player distance copgate4 <= 5"];
-action100 = _role addaction ["<t color='#FF0000'>Lower Gates</t>","lgate5.sqf",[],1,false,true,"","player distance pmcgatec1 <= 7 and (""pmc_license_journeyman"" call INV_HasLicense)"];
-action101 = _role addaction ["Lower Gates","lgate6.sqf",[],1,false,true,"","isCiv and player distance terrgate <= 5"];
-action102 = _role addaction ["Raise Gates","rgate5.sqf",[],1,false,true,"","(isIns or isOpf) and player distance opforgate2 <= 5"];
-action103 = _role addaction ["Lower Gates","lgate8.sqf",[],1,false,true,"","(isIns or isGov) and player distance opforgate2 <= 5"];
-action104 = _role addaction ["Raise Gates","rgate6.sqf",[],1,false,true,"","isOpf and player distance opforgate1 <= 5"];
-action105 = _role addaction ["Lower Gates","lgate9.sqf",[],1,false,true,"","isGov and player distance opforgate1 <= 5"];
-action106 = _role addaction ["Raise Gates","rgate7.sqf",[],1,false,true,"","isOpf and player distance opforgate3 <= 5"];
-action107 = _role addaction ["Lower Gates","lgate10.sqf",[],1,false,true,"","isGov and player distance opforgate3 <= 5"];
-//action108 = _role addaction ["Lower Gates","lgate11.sqf",[],1,false,true,"","isOpf and player distance opforgateb <= 5"];
+action94 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate1, cgate2, cgate3],1,false,true,"","(isBlu || isGov) and player distance copgate2 <= 5"];
+action96 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate13, cgate14, cgate15],1,false,true,"","(isBlu || isGov) and player distance copgate3 <= 5"];
+action98 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate7, cgate8, cgate9],1,false,true,"","(isBlu || isGov) and player distance copgate4 <= 5"];
+action100 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[pmcgate1, pmcgate2],1,false,true,"","player distance pmcgatec1 <= 7 and (""pmc_license_journeyman"" call INV_HasLicense)"];
+action101 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[terrgate],1,false,true,"","isCiv and player distance terrgate <= 5"];
+action102 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate10, cgate11, cgate12],1,false,true,"","(isIns || isOpf) and player distance opforgate2 <= 5"];
+action104 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate4, cgate5, cgate6],1,false,true,"","(isOpf || isGov) and player distance opforgate1 <= 5"];
+action106 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate16, cgate17, cgate18],1,false,true,"","(isOpf || isGov) and player distance opforgate3 <= 5"];
+
 
 //========================   WAR COMMANDS  ================================================
 action121 = _role addaction ["Declare War against North", "Awesome\Functions\war_functions.sqf", ["start_war"], 1, false, true, "", "!warstatus && isOpforRanked && player distance atm5 < 20"];
