@@ -46337,7 +46337,7 @@ class Mission
 			vehicle="Land_HBarrier_large";
 			skill=0.60000002;
 			text="pmcgate1";
-			init="this allowdamage false;";
+			init="this allowdamage false; this setVariable [""Raised"", false, true];";
 		};
 		class Item3780
 		{
@@ -48970,7 +48970,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate7";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4024
 		{
@@ -48981,7 +48981,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate9";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4025
 		{
@@ -48992,7 +48992,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate8";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4026
 		{
@@ -49003,7 +49003,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate10";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4027
 		{
@@ -49014,7 +49014,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate11";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4028
 		{
@@ -49025,7 +49025,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate12";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4029
 		{
@@ -49036,7 +49036,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate1";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4030
 		{
@@ -49047,7 +49047,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate3";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4031
 		{
@@ -49058,7 +49058,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate2";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4032
 		{
@@ -49069,7 +49069,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate6";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4033
 		{
@@ -49080,7 +49080,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate4";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4034
 		{
@@ -49091,7 +49091,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate5";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4035
 		{
@@ -49102,7 +49102,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate14";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4036
 		{
@@ -49113,7 +49113,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate13";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4037
 		{
@@ -49124,7 +49124,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate15";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4038
 		{
@@ -49135,7 +49135,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate18";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4039
 		{
@@ -49146,7 +49146,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate16";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4040
 		{
@@ -49157,7 +49157,7 @@ class Mission
 			vehicle="Land_CncBlock_Stripes";
 			skill=0.60000002;
 			text="cgate17";
-			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true];";
+			init="this setPosATL [(getPosATL this select 0),(getPosATL this select 1),-5]; this addEventHandler [""HandleDamage"", {false}]; this setVariable [""R3F_LOG_disabled"", true]; this setVariable [""Raised"", false, true];";
 		};
 		class Item4041
 		{
