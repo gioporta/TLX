@@ -15,7 +15,7 @@ if (isDog) then {
 	if (_role == ins3) then { strideyisnotbetter1 = player addAction ["= Commit Jihad =", "noscript.sqf", '["use"] execVM "suicide.sqf";']; };
 	lexisgreat3 = player addAction ["= Sniff Actions =", "noscript.sqf", ''];
 	lexisgreat4 = player addAction ["Sniff Humans", "noscript.sqf", 'if(!SniffCoolDown) then { systemChat "[Dog][Sniff]: You must wait to Sniff Humans."; } else { SniffCoolDown = false; _men = nearestobjects [getpos player, ["CAManBase"], 250] - [player]; systemChat format["== Sniffing... =="]; { if(isPlayer _x) then { systemChat format["[Dog]: %1, Distance: %2", name _x, player distance _x]; }; } forEach _men; sleep 1; SniffCoolDown = true; };'];
-	
+
 	if (_role == Cop5) then { lexisgreat5 = player addAction ["Sniff IED", "noscript.sqf", 'if(!SniffCoolDown) then { systemChat "[Dog][Sniff]: You must wait to Sniff Bombs."; } else { systemChat format["== Sniffing... =="]; { SniffCoolDown = false;  _men = player nearObjects [_x, 250]; { systemChat format["[Dog]: Alert Bomb Smelt!, Distance: %1", player distance _x];} forEach _men; } forEach ["PipeBomb", "BAF_ied_v1", "BAF_ied_v2", "BAF_ied_v3", "BAF_ied_v4", "PMC_ied_v1", "PMC_ied_v2", "PMC_ied_v3", "PMC_ied_v4"]; sleep 1; SniffCoolDown = true; };']; };
 };
 
@@ -269,14 +269,14 @@ action106 = _role addaction ["Raise Gates","rgate7.sqf",[],1,false,true,"","play
 action107 = _role addaction ["Lower Gates","lgate10.sqf",[],1,false,true,"","player distance opforgate3 <= 5"];
 action108 = _role addaction ["Lower Gates","lgate11.sqf",[],1,false,true,"","player distance opforgateb <= 5"];*/
 
-action94 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate1, cgate2, cgate3],1,false,true,"","(isBlu || isGov) and player distance copgate2 <= 5"];
-action96 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate13, cgate14, cgate15],1,false,true,"","(isBlu || isGov) and player distance copgate3 <= 5"];
-action98 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate7, cgate8, cgate9],1,false,true,"","(isBlu || isGov) and player distance copgate4 <= 5"];
+action94 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate1, cgate2, cgate3],1,false,true,"","(isGov) and player distance copgate2 <= 5"];
+action96 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate13, cgate14, cgate15],1,false,true,"","(isGov) and player distance copgate3 <= 5"];
+action98 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate7, cgate8, cgate9],1,false,true,"","(isGov) and player distance copgate4 <= 5"];
 action100 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[pmcgate1, pmcgate2],1,false,true,"","player distance pmcgatec1 <= 7 and (""pmc_license_journeyman"" call INV_HasLicense)"];
 action101 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[terrgate],1,false,true,"","isCiv and player distance terrgate <= 5"];
-action102 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate10, cgate11, cgate12],1,false,true,"","(isIns || isOpf) and player distance opforgate2 <= 5"];
-action104 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate4, cgate5, cgate6],1,false,true,"","(isOpf || isGov) and player distance opforgate1 <= 5"];
-action106 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate16, cgate17, cgate18],1,false,true,"","(isOpf || isGov) and player distance opforgate3 <= 5"];
+action102 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate10, cgate11, cgate12],1,false,true,"","(isIns || isGov) and player distance opforgate2 <= 5"];
+action104 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate4, cgate5, cgate6],1,false,true,"","(isGov) and player distance opforgate1 <= 5"];
+action106 = _role addaction ["Raise/Lower Gates","gateRemote.sqf",[cgate16, cgate17, cgate18],1,false,true,"","(isGov) and player distance opforgate3 <= 5"];
 
 
 //========================   WAR COMMANDS  ================================================
