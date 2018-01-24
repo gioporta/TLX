@@ -1,5 +1,5 @@
 {
-	if (_x == (terrgate or pmcgate1 or pmcgate2) then {
+	if (_x == (terrgate or pmcgate1 or pmcgate2)) then {
 		_x setPosATL [((getPosATL _x) select 0),((getPosATL _x) select 1), -10];
 		[] spawn {
 			sleep 20;
