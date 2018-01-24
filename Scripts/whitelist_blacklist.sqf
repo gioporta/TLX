@@ -46,7 +46,9 @@ A_LIST_MODS	=
 	"76561198159209074", // Steven
 	"76561198110382331", // Beans
 	"76561198174971281", // Elementz
-	"76561198069000590" // Elliot Wood
+	"76561198069000590", // Elliot Wood
+	"76561198156107052", // Wade Murphy
+	"76561198176287367" // Zerix/Jay
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
