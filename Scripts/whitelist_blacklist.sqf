@@ -9,8 +9,7 @@ _uid = getPlayerUID player;
 
 A_LIST_DEVS     =
 [
-	"76561198093358722", // Giovanni
-	"76561198065161712" //Stridey
+	"76561198093358722" // Giovanni
 ];
 
 A_LIST_TESTERS = [];
@@ -33,7 +32,8 @@ A_LIST_SNADMINS	=
 A_LIST_ADMINS	=
 [
 	"76561198071078533", // Rogue
-	"76561198044511240" // Comrade
+	"76561198044511240", // Comrade
+	"76561198159209074" // Steven
 ];
 
 // Remember the Array format! No comma on last item in array!
@@ -43,12 +43,13 @@ A_LIST_ADMINS	=
 A_LIST_MODS	= 
 [
 	"76561198101499715", // Rex
-	"76561198159209074", // Steven
 	"76561198110382331", // Beans
 	"76561198174971281", // Elementz
 	"76561198069000590", // Elliot Wood
 	"76561198156107052", // Wade Murphy
-	"76561198176287367" // Zerix/Jay
+	"765611979848627193", // Cinematics
+	"76561198176287367", // Zerix/Jay
+	"76561198018640903" // Winters
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;
