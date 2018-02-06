@@ -821,7 +821,7 @@ interact_deposit_other = {
 	if (typeName _amount != "SCALAR") exitWith {};
 	if (_amount <= 0) exitWith {};
 	if (_amount >= 10000000) exitWith { player groupChat "You cant send more than 10M at once through the ATM"; };
-	if (_amount >= 2000000) then { ["BANKSEND LOGGER", getPlayerUID _player, _player, name _player, "has sent", strM(_amount), " to ", getPlayerUID _target, _target, name _target] call fn_LogToServer; };
+	["BANKSEND LOGGER", getPlayerUID _player, _player, name _player, "has sent", strM(_amount), " to ", getPlayerUID _target, _target, name _target] call fn_LogToServer;
 
 	private["_player_variable", "_player_variable_name", "_bank_amount"];
 	private["_tax_fee", "_total_due"];
@@ -2100,6 +2100,9 @@ interact_vehicle_storage = {
 			player groupChat format["The total weight of the items exceed the vehicle's capacity"];
 		};
 		player groupChat format["You put %1 item(s) into the vehicle", strM(_amount)];
+		if (_item == "MONEY") then {
+			["TRUNK LOGGER", "MONEY ADDED", str (name player), _amount, _vehicle] call fn_LogToServer;
+		};
 		_valid = true;
 	}
 	else {
@@ -2113,6 +2116,9 @@ interact_vehicle_storage = {
 		};
 
 		player groupChat format["You took %1 item(s) out of the vehicle", strM(abs(_amount))];
+		if (_item == "MONEY") then {
+			["TRUNK LOGGER", "MONEY REMOVED", str (name player), _amount, _vehicle] call fn_LogToServer;
+		};
 		_valid = true;
 	};
 
@@ -2193,6 +2199,10 @@ interact_factory_storage = {
 		if (_p_max_weight > 0 && (_items_weight + _p_cur_weight) > _p_max_weight) exitWith {
 			player groupChat format["The total weight of the items exceed the your carrying capacity"];
 		};
+		
+		if (_item == "MONEY" && _amount > 1000000) then {
+			["FACTORY STORAGE LOGGER", "MONEY REMOVAL", str (name player), _amount] call fn_LogToServer;
+		};
 		_valid =  true;
 	};
 
@@ -2257,6 +2267,10 @@ interact_generic_storage = {
 		if (_g_max_weight > 0 && ((_items_weight + _g_cur_weight) > _g_max_weight)) exitWith {
 			player groupChat format["The total weight of the items exceed the storage's capacity"];
 		};
+		
+		if (_item == "MONEY" && _amount > 1000000) then {
+			["STORAGE LOGGER", "MONEY ADDED", str (name player), _amount] call fn_LogToServer;
+		};
 
 		_valid = true;
 	}
@@ -2269,6 +2283,11 @@ interact_generic_storage = {
 		if (_p_max_weight > 0 && (_items_weight + _p_cur_weight) > _p_max_weight) exitWith {
 			player groupChat format["The total weight of the items exceed the your carrying capacity"];
 		};
+		
+		if (_item == "MONEY" && _amount > 1000000) then {
+			["STORAGE LOGGER", "MONEY REMOVED", str (name player), _amount] call fn_LogToServer;
+		};
+
 		_valid = true;
 	};
 

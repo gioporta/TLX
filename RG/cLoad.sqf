@@ -295,3 +295,12 @@ if (isDog) then {
 		[player, "Fin", false] spawn C_change;
 	};
 };
+
+// Logging
+if ([player] call player_get_factory_money > 1000000) then {
+	["STAT LOAD LOGGER", str (name player), " HAS ", _amount, " IN FACTORY STORAGE"] call fn_LogToServer;
+};
+
+if ([player] call player_get_private_storage_money > 1000000) then {
+	["STAT LOAD LOGGER", str (name player), " HAS ", _amount, " IN PRIVATE STORAGE"] call fn_LogToServer;
+};
