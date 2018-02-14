@@ -562,7 +562,7 @@ class Mission
 					skill=0.60000002;
 					text="Cop1";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Cop1 Police Dispatch - Radar (Supporter SLOT)";
+					description="Cop1 Police Dispatch - Radar";
 				};
 			};
 		};
@@ -584,7 +584,7 @@ class Mission
 					skill=0.60000002;
 					text="Cop2";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Cop2 - Delta Force (Supporter SLOT)";
+					description="Cop2 - Delta Force";
 				};
 			};
 		};
@@ -606,7 +606,7 @@ class Mission
 					skill=0.60000002;
 					text="Cop3";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Cop3 - Delta Force (Supporter SLOT)";
+					description="Cop3 - Delta Force";
 				};
 			};
 		};
@@ -628,7 +628,7 @@ class Mission
 					skill=0.60000002;
 					text="Cop4";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2) + 1]; ";
-					description="Cop4 - Delta Force (Supporter SLOT)";
+					description="Cop4 - Delta Force";
 				};
 			};
 		};
@@ -1309,7 +1309,7 @@ class Mission
 					skill=0.60000002;
 					text="ins7";
 					init="removeallweapons this;this disableAI ""move""; this disableAI ""anim""; this allowdamage false; removeallweapons this;";
-					description="Chechen Fighter (Supporter SLOT)";
+					description="Chechen Fighter";
 				};
 			};
 		};
@@ -1878,7 +1878,7 @@ class Mission
 					skill=0.60000002;
 					text="ins8";
 					init="removeallweapons this;this disableAI ""move""; this disableAI ""anim""; this allowdamage false; removeallweapons this;";
-					description="Chechen Fighter  (Supporter SLOT)";
+					description="Chechen Fighter";
 				};
 			};
 		};
@@ -1901,7 +1901,7 @@ class Mission
 					skill=0.60000002;
 					text="opf1";
 					init="removeallweapons this;";
-					description="TLA Leader (Supporter SLOT)";
+					description="TLA Leader (Supporter Slot)";
 				};
 			};
 		};
@@ -1924,7 +1924,7 @@ class Mission
 					skill=0.60000002;
 					text="opf2";
 					init="removeallweapons this;";
-					description="TLA Commander - Radar (Supporter SLOT)";
+					description="TLA Commander - Radar";
 				};
 			};
 		};
@@ -1947,7 +1947,7 @@ class Mission
 					skill=0.60000002;
 					text="opf3";
 					init="removeallweapons this;";
-					description="TLA Officer (Supporter SLOT)";
+					description="TLA Officer";
 				};
 			};
 		};
@@ -1970,7 +1970,7 @@ class Mission
 					skill=0.60000002;
 					text="opf4";
 					init="removeallweapons this;";
-					description="TLA Officer (Supporter SLOT)";
+					description="TLA Officer";
 				};
 			};
 		};
@@ -1993,7 +1993,7 @@ class Mission
 					skill=0.60000002;
 					text="opf5";
 					init="removeallweapons this;";
-					description="Spetsnaz Officer (Supporter SLOT)";
+					description="Spetsnaz Officer";
 				};
 			};
 		};
@@ -2016,7 +2016,7 @@ class Mission
 					skill=0.60000002;
 					text="opf6";
 					init="removeallweapons this;";
-					description="Spetsnaz Officer (Supporter SLOT)";
+					description="Spetsnaz Officer";
 				};
 			};
 		};
@@ -4907,8 +4907,8 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="ins9";
-					init="removeallweapons this; subslot = true;";
-					description="Chechen Officer (Supporter SLOT)";
+					init="removeallweapons this;";
+					description="Chechen Officer";
 				};
 			};
 		};
@@ -5514,8 +5514,8 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="ins10";
-					init="removeallweapons this; vipslot = true;";
-					description="Chechen Officer (VIP SLOT)";
+					init="removeallweapons this;";
+					description="Chechen Officer";
 				};
 			};
 		};
@@ -5537,8 +5537,8 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="ins11";
-					init="removeallweapons this; vipslot = true;";
-					description="Chechen Officer (VIP SLOT)";
+					init="removeallweapons this;";
+					description="Chechen Officer";
 				};
 			};
 		};
@@ -5561,7 +5561,7 @@ class Mission
 					skill=0.60000002;
 					text="ins12";
 					init="removeallweapons this; adminslot = true;";
-					description="Chechen Leader (ADMIN SLOT)";
+					description="Chechen Leader (Staff Slot)";
 				};
 			};
 		};
