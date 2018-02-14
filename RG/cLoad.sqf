@@ -144,11 +144,11 @@ statsLoaded = 1;
 
 if ((isSup) && !("supporter" call INV_HasLicense)) then {
 INV_LicenseOwner = INV_LicenseOwner + ["supporter"];
-server globalchat "supporter ACCOUNT DETECTED: supporter License Added";};
+server globalchat "supporter ACCOUNT DETECTED: Supporter License Added";};
 
 if ((isVip) && !("viplicense" call INV_HasLicense)) then {
 INV_LicenseOwner = INV_LicenseOwner + ["viplicense"];
-server globalchat "VIP supporter ACCOUNT DETECTED: VIP supporter License Added";};
+server globalchat "VIP supporter ACCOUNT DETECTED: VIP Supporter License Added";};
 
 if ((isPmc) && !("pmc_license_journeyman" call INV_HasLicense) && (playerside == civilian)) then {INV_LicenseOwner = INV_LicenseOwner + ["pmc_license_journeyman"];
 			server globalchat "PMC ACCOUNT DETECTED: PMC License Added"};
