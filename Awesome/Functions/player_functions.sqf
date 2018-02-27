@@ -424,7 +424,7 @@ player_load_warrants = {
 	if (isNil "_reasons") exitWith {};
 
 	{
-		[player,_x,10000] call player_update_warrants;
+		[player,_x,0] call player_update_warrants;
 	} foreach _reasons;
 
 	[player,_bounty] call player_update_bounty;
