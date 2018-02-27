@@ -54,7 +54,7 @@ while {true} do
 			["positionPlayerCiv", ASLtoATL (getPosASL player)], ["BackpackPlayerCiv", typeOf unitBackpack player],
 			["BackWepPlayerCiv", getWeaponCargo (unitBackpack player)], ["BackMagPlayerCiv", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
 			[_uid, "MagazinesPlayerCiv", magazines player] call fn_SaveToServer; sleep 0.1;
-			[getPlayerUID player, getPlayerUID player, "WarrantsCiv", [] call player_save_warrants] call fn_SaveToServer;
+			[_uid, "WarrantsCiv", [] call player_save_warrants] call fn_SaveToServer;
 			if(count INV_LicenseOwner > 0) then {
 				[	_uid,
 					["privateStorageCiv", ([player, "private_storage"] call player_get_array)],
