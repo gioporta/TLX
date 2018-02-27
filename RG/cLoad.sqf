@@ -119,7 +119,7 @@ switch (playerSide) do
 		[player, _uid, "LicensesCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "InventoryCiv", "ARRAY"] call sendToServer;
     		[player, _uid, "privateStorageCiv", "ARRAY"] call sendToServer;
-		[player, _uid, "WarrantsCiv", "ARRAY", _cid] call sendToServer;
+		[player, _uid, "WarrantsCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "FactoryCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "positionPlayerCiv", "ARRAY"] call sendToServer;
 		[player, _uid, "BackpackPlayerCiv", "STRING"] call sendToServer;
