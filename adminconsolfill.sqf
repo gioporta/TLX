@@ -35,7 +35,7 @@ _array = [];
 			["---------------------------------", {}],
 			["****** Mod Commands ******",	{}],
 
-			
+
 			["Admin Camera (Toggle)", {
 				handle = [] execVM "camera.sqf";
 			}],
@@ -51,7 +51,7 @@ _array = [];
 					clearVehicleInit player;
 					hint "Done the message was sent to all players";
 					scode = nil;
-					sleep 5; 
+					sleep 5;
 					AdminSpamBroadcasting = false;
 				}
 				else {
@@ -72,13 +72,13 @@ _array = [];
 					format['[%1, 100] call player_prison_bail;', _selectedplayer] call broadcast;
 					format['[%1] call player_prison_convict;', _selectedplayer] call broadcast;
 
-					["ADMIN LOGGER", name (_selectedplayer), "was sent to jail for", _jailminutes, "by", str (name player)] call fn_LogToServer; 
+					["ADMIN LOGGER", name (_selectedplayer), "was sent to jail for", _jailminutes, "by", str (name player)] call fn_LogToServer;
 					}
 				else {
 					hint "ERROR: expected number";
 				};
-					sleep 5; 
-					AdminSpamBroadcasting = false;				
+					sleep 5;
+					AdminSpamBroadcasting = false;
 				}
 				else {
 					player commandchat "STOP SPAMMING COMMANDS";
@@ -93,14 +93,64 @@ _array = [];
 					warstatuscop = false;
 					publicVariableServer "warstatuscop";
 					["ADMIN LOGGER", str (name player), "forced Ceasefire"] call fn_LogToServer;
-					sleep 5; 
+					sleep 5;
 					AdminSpamBroadcasting = false;
 				}
 				else {
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
 			}],
-			
+			["Force Player on TS (Select)", {
+				if(!AdminSpamBroadcasting) then {
+					AdminSpamBroadcasting = true;
+					private["_variableName"];
+					_variableName = (vehicleVarName _selectedplayer);
+					if (isNil "_variableName") exitWith{};
+					if (_variableName == "") exitWith {};
+
+					hint format["Forcing %1 on TS...", _variableName];
+					format['
+						[] spawn {
+							if (player != %1) exitWith {};
+							execvm "Scripts\blackscreen_loop.sqf"
+						}
+					', _selectedplayer] call broadcast;
+
+					["ADMIN LOGGER", name (_selectedplayer), " was forced on ts by ", str (name player)] call fn_LogToServer;
+
+					sleep 5;
+					AdminSpamBroadcasting = false;
+				} else {
+					player commandchat "STOP SPAMMING COMMANDS";
+				};
+
+			}],
+			["Stop Force Player on TS (Select)", {
+				if(!AdminSpamBroadcasting) then {
+					AdminSpamBroadcasting = true;
+					private["_variableName"];
+					_variableName = (vehicleVarName _selectedplayer);
+					if (isNil "_variableName") exitWith{};
+					if (_variableName == "") exitWith {};
+
+					hint format["Stoped forcing %1 on TS...", _variableName];
+					format['
+						[] spawn {
+							if (player != %1) exitWith {};
+							execVM "Scripts\blackscreen_stop.sqf"
+						}
+					', _selectedplayer] call broadcast;
+
+					["ADMIN LOGGER", name (_selectedplayer), " was stopped being forced on TS by ", str (name player)] call fn_LogToServer;
+
+					sleep 5;
+					AdminSpamBroadcasting = false;
+				} else {
+					player commandchat "STOP SPAMMING COMMANDS";
+				};
+
+			}],
+
 			/*["MapMarkers - DNA", {
 				handle = [] execVM "Awesome\Admin\Lmapmarkers.sqf";
 				sleep 30;
@@ -108,8 +158,8 @@ _array = [];
 
 				["ADMIN LOGGER", str (name player), "activated 30s mapmarker"] call fn_LogToServer;
 			}],*/
-			
-			
+
+
             /*["Kick Player to Lobby", {
 
 			if(!AdminSpamBroadcasting) then {
@@ -126,18 +176,18 @@ _array = [];
 
 
 				["ADMIN LOGGER", name (_selectedplayer), "was kicked to lobby  by", str (name player)] call fn_LogToServer;
-				sleep 5; 
+				sleep 5;
 				AdminSpamBroadcasting = false;
 				}
 				else {
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
-				
+
             }],*/
-			
+
 			["---------------------------------", {}],
 			["****** Blacklist Commands ******",	{}],
-			
+
 			["[SelPlayer]Blacklist", {
 			if(!AdminSpamBroadcasting) then {
 				AdminSpamBroadcasting = true;
@@ -157,7 +207,7 @@ _array = [];
 							failMission "END1";
 						};
 					', _selectedplayer] call broadcast;
-				sleep 5; 
+				sleep 5;
 				AdminSpamBroadcasting = false;
 				}
 				else {
@@ -165,13 +215,13 @@ _array = [];
 				};
 
             }],
-			
+
 			["[UID]Un-Blacklist Player", {
                 if(!AdminSpamBroadcasting) then {
                     AdminSpamBroadcasting = true;
                     private["_killer_uid"];
                     _killer_uid = _inputText;
-                	["ADMIN LOGGER", _inputText, "(uid) was un blacklisted by", str (name player)] call fn_LogToServer; 
+                	["ADMIN LOGGER", _inputText, "(uid) was un blacklisted by", str (name player)] call fn_LogToServer;
 					copblacklist = copblacklist - [_killer_uid];
 					opfblacklist = opfblacklist - [_killer_uid];
 					publicVariable "copblacklist";
@@ -183,7 +233,7 @@ _array = [];
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
             }]
-			
+
 			/*["Kick Player from Game", {
 			if(!AdminSpamBroadcasting) then {
 				AdminSpamBroadcasting = true;
@@ -203,7 +253,7 @@ _array = [];
                 ', _selectedplayer] call broadcast;
 
 				["ADMIN LOGGER", name (_selectedplayer), "was KICKED by", str (name player)] call fn_LogToServer;
-				sleep 5; 
+				sleep 5;
 				AdminSpamBroadcasting = false;
 				}
 				else {
@@ -232,7 +282,7 @@ _array = [];
 									};
 							//execvm "AC\punish.sqf";
 							player enableSimulation false;
-							
+
 						} else {
 							player groupChat "You are being unlocked.";
 							playerIsHcker = nil;
@@ -243,7 +293,7 @@ _array = [];
 											disableUserInput false;
 										};
 									};
-							
+
 							//disableUserInput false;
 							//execvm "AC\punish.sqf";
 							player enableSimulation true;
@@ -252,16 +302,16 @@ _array = [];
                 ', _selectedplayer] call broadcast;
 
 				["ADMIN LOGGER", name (_selectedplayer), "was LOCKED by", str (name player)] call fn_LogToServer;
-				sleep 5; 
+				sleep 5;
 				AdminSpamBroadcasting = false;
 				}
 				else {
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
             }]*/
-			
 
-			
+
+
             ];
           _array = _array + _newarray;
         };
@@ -301,13 +351,13 @@ _array = [];
 				', _selectedplayer] call broadcast;
 
 				["ADMIN LOGGER", name (_selectedplayer), "had their weapons removed by", str (name player)] call fn_LogToServer;
-				sleep 5; 
+				sleep 5;
 				AdminSpamBroadcasting = false;
 				}
 				else {
 					player commandchat "STOP SPAMMING COMMANDS";
 				};
-			}]	
+			}]
 
         ];
 
@@ -326,7 +376,7 @@ _array = [];
 				[0,0,0,["start_martial"]] execVM "Awesome\Functions\war_functions.sqf";
 				["ADMIN LOGGER", str (name player), "toggled Martial Law"] call fn_LogToServer;
 			}],
-			
+
 			["Give ALL Players Money", {
 			if(!AdminSpamBroadcasting) then {
 				AdminSpamBroadcasting = true;
@@ -348,7 +398,7 @@ _array = [];
 
 					["ADMIN LOGGER", _amount, "was COMPd to ALL players by", str (name player)] call fn_LogToServer;
 					}
-					else 
+					else
 					{
 						hint "Can't give more than 5M, and can't take away all player's money";
 					};
@@ -357,7 +407,7 @@ _array = [];
 				{
 					hint "ERROR: expected number";
 				};
-				sleep 5; 
+				sleep 5;
 				AdminSpamBroadcasting = false;
 				}
 				else {
@@ -393,7 +443,7 @@ _array = [];
 				{
 					hint "ERROR: expected number";
 				};
-				sleep 5; 
+				sleep 5;
 				AdminSpamBroadcasting = false;
 				}
 				else {
@@ -447,7 +497,7 @@ _array = [];
 				', _selectedplayer] call broadcast;
 
 				["ADMIN LOGGER", name (_selectedplayer), "was adminkilled by", str (name player)] call fn_LogToServer;
-				sleep 5; 
+				sleep 5;
 				AdminSpamBroadcasting = false;
 				}
 				else {
@@ -481,14 +531,14 @@ _array = [];
 
 						{
 							deleteVehicle _x;
-						} count (player nearObjects ["WeaponHolder", _distance]); 
-					}		
+						} count (player nearObjects ["WeaponHolder", _distance]);
+					}
 					else {
 						hint "ERROR: expected number (Enter the distance to delete all vehicles in range in metres)";
 					};
 			}],
 
-			
+
 			/*["RangeFinder", {
 				player addweapon "binocular_vector";
 				player action ["switchweapon", player, player, 0];
@@ -510,7 +560,7 @@ _array = [];
 
 		    ["---------------------------------", {}],
 			["****** Dev Commands ******",	{}],
-			
+
 			["TP All to you", {
 			private["_adminLoc","_admin"];
 			_admin = player;
@@ -527,7 +577,7 @@ _array = [];
                 ', _admin, _adminLoc] call broadcast;
 
             }],
-			
+
 			["TP All Civs to you", {
 			private["_adminLoc"];
 			_adminLoc = getPosASL player;
@@ -554,7 +604,7 @@ _array = [];
 					};
 				'] call broadcast;
 			}],
-			
+
 			/*["Self Invincibility (On)", {
 
 						player allowdamage false;
@@ -579,36 +629,36 @@ _array = [];
 					};
 				', _selectedplayer] call broadcast;
 			}],
-			
+
 			["# Group checker", {
-				hint format ["Total number of groups = %1", (count allGroups)];			
+				hint format ["Total number of groups = %1", (count allGroups)];
 			}],
-			
+
 			["Select Chief", {
 				private["_chiefString"];
 				chiefNumber = parseNumber(_inputText) + 94;
 				_chiefString  = (PlayerStringArray select chiefNumber);
 				publicVariable "chiefNumber";
-				format["hint format[localize ""STRS_chief_new"", ""%3"", %2]; 
+				format["hint format[localize ""STRS_chief_new"", ""%3"", %2];
 				if (%5 == %1) then {
 					ischief = true;
-				} else 
+				} else
 				{
 					ischief = false;
 				};
-				player groupChat format['ischief is %4, rolenum is %5'] 
+				player groupChat format['ischief is %4, rolenum is %5']
 				", chiefNumber, 5, _chiefString, ischief,(rolenumber-1)] call broadcast;
 				player groupChat format["chiefnum = %1", chiefNumber];
 			}],
-			
+
 			["---------------------------------", {}],
 			["*** Give Commands ***",	{}],
-			
+
 			["Speed 5 - Nitro Vehicle", {
 				(vehicle player) setvariable ["tuning", 5, true];
 				(vehicle player) setvariable ["nitro", 1, true];
 			}],
-			
+
 			["10 Lockpicks", {
 				[player, 'lockpick',10] call INV_AddInventoryItem;
 			}],
@@ -662,7 +712,7 @@ _array = [];
         {
            _newarray =
            [
-			
+
 			["---------------------------------", {}],
 		    ["****** Development Commands ******",	{}],
 			["Runcode self", {
@@ -679,9 +729,9 @@ _array = [];
 			["Runcode all", {
 				_inputText call broadcast;
 			}],
-			
+
 			["Make AI Ignore you", {
-			
+
 				player addrating 9999;
 				hint "Points added, AI won't TK you now. Execute again for even more.";
 			}],
@@ -763,14 +813,14 @@ _array = [];
 
 						{
 							deleteVehicle _x;
-						} count (player nearObjects ["WeaponHolder", _distance]); 
-					}			
+						} count (player nearObjects ["WeaponHolder", _distance]);
+					}
 					else {
 
 						hint "ERROR: expected number (Enter the distance to delete all vehicles in range in metres)";
 					};
 			}],
-			
+
 			["Server FPS display on/off", {
 					if (isNil "srvFpsCheck") then {
 						srvFpsCheck = false;
@@ -783,18 +833,18 @@ _array = [];
 					while {srvFpsCheck} do {
 						hintsilent format["Avg|Min FPS \n %1", serverFPS];
 						sleep 1;
-					};	
+					};
 			}],
-			
+
 			["COP - 1 List - BUGGED", {
 
 				["COP_1"] spawn A_WBL_F_DIALOG_INIT;
 
 			}],
-			
+
 			["---------------------------------", {}],
 		    ["*** Give Commands Don't Use ***",	{}],
-			
+
 			["Spawn Armored SUV", {
 
 			"ArmoredSUV_PMC" createVehicle [(getpos player select 0) + 10, (getpos player select 1) + 10, getpos player select 2];
@@ -819,9 +869,9 @@ _array = [];
 				player addweapon "VSS_vintorez";
 				player action ["switchweapon", player, player, 0];
 			}],
-			
+
 			["---------------------------------", {}]
-			
+
 		];
           _array = _array + _newarray;
         };

@@ -86,12 +86,12 @@ player_pmc = {
 
 count_side = {
 	_side = _this select 0;
-	
+
 	_count = 0;
 	{
 		_player_variable_name = _x;
 		_player_variable = missionNamespace getVariable _player_variable_name;
-		
+
 		if(!isNil "_player_variable") then {
 			if ([_player_variable] call player_exists) then {
 				if ([_player_variable] call player_side == _side) then {
@@ -100,7 +100,7 @@ count_side = {
 			};
 		};
 	} count PlayerStringArray;
-	
+
 	_count
 };
 
@@ -396,6 +396,39 @@ player_reset_warrants = {
 	if (isCiv && ister) then {
 		ister = false;
 	};
+};
+
+player_save_warrants = {
+	private ["_reasons","_bounty"];
+
+	_warrant = [];
+	_reasons = [player] call player_get_reason;
+	_bounty = [player] call player_get_bounty;
+	_warrant = [_bounty,_reasons];
+	_warrant
+};
+
+player_load_warrants = {
+	private ["_warrants","_bounty","_reasons"];
+	_warrants = _this select 0;
+
+	if (isNil "_warrants") exitWith {};
+	if !(count _warrants > 0) exitWith {};
+
+	_bounty = _warrants select 0;
+	_reasons = _warrants select 1;
+
+	if !(count _reasons > 0) exitWith {};
+
+	if (isNil "_bounty") exitWith {};
+	if (isNil "_reasons") exitWith {};
+
+	{
+		[player,_x,0] call player_update_warrants;
+	} foreach _reasons;
+
+	[player,_bounty] call player_update_bounty;
+
 };
 
 player_armed = {
@@ -1430,7 +1463,7 @@ player_set_gear = {
 		} else {
 			if ([_player] call player_opfor) then {
 				_magazines = OpforGear_Mags;
-				_weapons = OpforGear_Weap;	
+				_weapons = OpforGear_Weap;
 			};
 		};*/
 	};
@@ -2136,10 +2169,10 @@ player_init_arrays = {
 		"ins1","ins2","ins3","ins4","ins9","ins10",
 		"ins11","ins12"
 	];
-	
+
 	PlayerStringArray = CivStringArray + BluStringArray + OpfStringArray + InsStringArray;
 	/* End Factions */
-	
+
 	/* Slots */
 	DogSlots = ["ins3", "cop5"];
 	PMCSlots = ["civ60", "civ61", "civ62", "civ63", "civ64"];
@@ -2147,12 +2180,12 @@ player_init_arrays = {
 	AdmSlots = DogSlots + [];
 	SupSlots = [];
 	VipSlots = [];
-	
+
 	/* References */
 	BluRankReferenceArray = ["cop1"];
 	OpfRankReferenceArray = ["opf1"];
 	OpfRadarReferenceArray = ["opf2"];
-	
+
 	/* System */
 	role = _player;
 	rolestring = toLower(str(_player));
@@ -2163,16 +2196,16 @@ player_init_arrays = {
 	isOpf = (rolestring in OpfStringArray); //[_player] call player_opfor;
 	isIns = (rolestring in InsStringArray); //[_player] call player_insurgent;
 	isCiv = (rolestring in CivStringArray); //[_player] call player_civilian;
-	
+
 	isDog = (rolestring in DogSlots); //[_player] call player_dog;
 	isPmc = (rolestring in PMCSlots); //[_player] call player_pmc;
-	
+
 	isGov = isBlu || isOpf;
 
 	isBluforRanked = (rolestring in BluRankReferenceArray);
 	isOpforRanked = (rolestring in OpfRankReferenceArray);
 	isOpforRadar = (rolestring in OpfRadarReferenceArray);
-	
+
 	isSupSlot = (rolestring in SupSlots);
 	isVipSlot = (rolestring in VipSlots);
 	isAdmSlot = (rolestring in AdmSlots);
