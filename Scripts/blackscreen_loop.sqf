@@ -3,7 +3,7 @@ if (blackscreenLoopRunning) exitWith {};
 blackscreenLoopRunning = true;
 
 _time = 300;
-while {_time > 0 and blackscreenLoopRunning == true} do {
+while {_time > 0 and blackscreenLoopRunning} do {
 	_time = _time - 1;
 
 	if ((_time % 30) == 0) then {
