@@ -84,7 +84,7 @@ if (_art == "getajob_delivery") then {
 
 if (_art == "cancel") then {
 	player removeAction deliveryinfoaction;
-	player removeAction action62;
+	player removeAction action_CancelDeliveryMission;
 	_vcl removeaction deliveryinfoaction;
 	player groupchat "delivery mission failed!";
 	alreadygotaworkplacejob = 0;
