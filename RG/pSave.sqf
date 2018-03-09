@@ -8,7 +8,7 @@ while {true} do
 	{
 		sleep 120;
 		saveinprogress = true;
-		player groupChat " [STATS SAVING] DO NOT EXIT ";
+		systemChat "Stats saving, please do not exit.";
 		case west:
 		{
 			[_uid, ["moneyAccountWest", ([player] call get_bank_valuez)], ["InventoryWest", ([player] call player_get_inventory)], ["positionPlayerWest", ASLtoATL (getPosASL player)], ["BackpackPlayerWest", typeOf unitBackpack player], ["BackWepPlayerWest", getWeaponCargo (unitBackpack player)], ["BackMagPlayerWest", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
@@ -19,7 +19,7 @@ while {true} do
 			else {
 				[_uid, ["privateStorageWest", ([player, "private_storage"] call player_get_array)], ["WeaponsPlayerWest", weapons player]] call fn_SaveAggToServer; sleep 0.1;
 			};
-			player groupChat " [STATS SAVED] ";
+			systemChat "Stat saving complete.";
 		};
 
 		case east:
@@ -31,7 +31,8 @@ while {true} do
 			}
 			else {
 				[_uid, ["privateStorageEast", ([player, "private_storage"] call player_get_array)], ["WeaponsPlayerEast", weapons player]] call fn_SaveAggToServer; sleep 0.1;
-			};			player groupChat " [STATS SAVED] ";
+			};
+			systemChat "Stat saving complete.";
 		};
 
 		case resistance:
@@ -44,7 +45,7 @@ while {true} do
 			else {
 				[_uid, ["privateStorageRes", ([player, "private_storage"] call player_get_array)], ["WeaponsPlayerRes", weapons player]] call fn_SaveAggToServer; sleep 0.1;
 			};
-			player groupChat " [STATS SAVED] ";
+			systemChat "Stat saving complete.";
 		};
 
 		case civilian:
@@ -66,7 +67,7 @@ while {true} do
 			else {
 				[_uid, ["privateStorageCiv", ([player, "private_storage"] call player_get_array)], ["WeaponsPlayerCiv", weapons player]] call fn_SaveAggToServer; sleep 0.1;
 			};
-			player groupChat " [STATS SAVED] ";
+			systemChat "Stat saving complete.";
 		};
 
 

@@ -150,7 +150,7 @@ civilian_salary_handout = {
 	[player, _income] call transaction_bank;
 	
 
-	player groupChat format[localize "STRS_moneh_civmoneyadd", rolestring, strM(_income)];
+	systemChat format[localize "STRS_moneh_civmoneyadd", rolestring, strM(_income)];
 	
 	_taxes = round((call shop_get_paid_taxes));
 	
@@ -158,7 +158,7 @@ civilian_salary_handout = {
 		MayorTaxes = MayorTaxes + _taxes;
 		MayorTaxes = round(MayorTaxes*(MayorTaxPercent/100));
 		[player, (MayorTaxes + MayorExtraPay)] call transaction_bank;
-		player groupchat format["As president you get an extra paycheck of $%1. You also got $%2 taxes.", strM(MayorExtraPay), strM(MayorTaxes)];
+		systemChat format["As president you get an extra paycheck of $%1. You also got $%2 taxes.", strM(MayorExtraPay), strM(MayorTaxes)];
 		MayorTaxes = 0;
 	}
 	else {if (_taxes > 0) then {
@@ -229,7 +229,7 @@ civilian_salary_handout = {
             {
                 [player, _income] call transaction_bank;
 				sleep 2;
-                hint format["You recieved a bonus income of $%1. Thanks for supporting TLX!", _income];
+                systemChat format["You recieved a bonus income of $%1. Thanks for supporting TLX!", _income];
             };
     };
 
@@ -240,7 +240,7 @@ cop_salary_loop = {
 	_salary_delay =  5;
 	_i = _salary_delay;
 	while { _i > 0 && isBlu } do {
-		player groupChat format[localize "STRS_moneh_countdown", _i];
+		systemChat format[localize "STRS_moneh_countdown", _i];
 		[60] call isleep;
 		_i = _i - 1;
 	};
@@ -259,7 +259,7 @@ civilian_salary_loop = {
 	_salary_delay = 5;
 	_i = _salary_delay;
 	while { _i > 0 && not(isBlu) } do {
-		player groupChat format[localize "STRS_moneh_countdown", _i];
+		systemChat format[localize "STRS_moneh_countdown", _i];
 		[59] call isleep;
 		_i = _i - 1;
 	};
@@ -272,7 +272,7 @@ civilian_salary_loop = {
 	[] spawn civilian_salary_loop;
 };
 
-
+sleep 20;
 [] spawn cop_salary_loop;
 [] spawn civilian_salary_loop;
 

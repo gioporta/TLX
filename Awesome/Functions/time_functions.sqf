@@ -138,7 +138,7 @@ time_init = {
 	call time_init_globals;
 	_game_time_number = call time_game_time_number;
 	_new_date = numberToDate [YEAR, _game_time_number];
-	player groupChat  format["Synchronizing time with server @ %1, %2m day, %3m night", _new_date, time_sunrise_to_sunset_minutes, time_sunset_to_sunrise_minutes];
+	diag_log format["Synchronizing time with server @ %1, %2m day, %3m night", _new_date, time_sunrise_to_sunset_minutes, time_sunset_to_sunrise_minutes];
 	setDate _new_date;
 };
 

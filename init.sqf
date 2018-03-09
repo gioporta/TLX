@@ -19,7 +19,7 @@ private ["_h"];
 debug = false;
 
 //////////////////////////
-server globalChat "Initializing Xtreme Takistan Life.......";
+systemChat "Initializing Takistan Life Xtreme.";
 
 _h = [] execVM "supporters.sqf";
 waitUntil{scriptDone _h};
@@ -129,7 +129,6 @@ waitUntil{scriptDone _h};
 _h = [] execVM "Awesome\Functions\quicksort.sqf";
 waitUntil{scriptDone _h};
 //server globalChat "invvars loading";
-server globalChat "Shop information being loaded, may take a few moments, please wait...";
 _h = [] execVM "INVvars.sqf";
 waitUntil{scriptDone _h};
 //server globalChat "shopfncs loading";
@@ -198,7 +197,6 @@ if(isClient) then {
 	EH_fired_vehicle_gas		= compile (preprocessfileLineNumbers "Awesome\EH\EH_fired_vehicle_gas.sqf");
 	A_fnc_EH_wa				= compile (preprocessfileLineNumbers "Awesome\EH\EH_weaponassembled.sqf");
 	[] execVM "RG\cLoad.sqf";
-	server globalChat "Loading - Please Wait";
 	[] execVM "Client\watermark.sqf";
 	[] execVM "Awesome\Functions\holster.sqf";
 	[] execVM "respawn.sqf";
@@ -225,9 +223,8 @@ if(isClient) then {
 	[] execVM "AC\antidupe.sqf";
 	[] execVM "addons\fpsFix\vehicleManager.sqf";
 	[] execVM "lockgear.sqf";
-	[] execVM "Awesome\Houses\homeinit.sqf";
-	server globalChat "Loading Fully Complete";
 };
+[] execVM "Awesome\Houses\homeinit.sqf";
 /*
 //WAS DISABLEEEDDDDDD
 _h = [] execVM "Scripts\gcrs\gcrsrepelscript.sqf";
