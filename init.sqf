@@ -70,9 +70,9 @@ waitUntil{scriptDone _h};
 
 
 if (isServer) then {
-	/*CBA_display_ingame_warnings = false; 
+	/*CBA_display_ingame_warnings = false;
 	publicVariable "CBA_display_ingame_warnings";*/
-	
+
 	call compile preprocessFile "\iniDB\init.sqf";
 	sleep 0.1;
 	[] execVM "\iniDB\saver.sqf";
@@ -226,6 +226,8 @@ if(isClient) then {
 	[] execVM "addons\fpsFix\vehicleManager.sqf";
 	[] execVM "lockgear.sqf";
 	[] execVM "Awesome\Houses\homeinit.sqf";
+	[] execVM "Scripts\player_functions.sqf";
+	[] execVM "Scripts\player_drag.sqf";
 	server globalChat "Loading Fully Complete";
 };
 /*
