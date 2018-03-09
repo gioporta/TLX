@@ -9,7 +9,8 @@ _uid = getPlayerUID player;
 
 A_LIST_DEVS     =
 [
-	"76561198093358722" // Giovanni
+	"76561198093358722", // Giovanni
+	"76561198044511240" // Comrade
 ];
 
 A_LIST_TESTERS = [];
@@ -32,8 +33,6 @@ A_LIST_SNADMINS	=
 A_LIST_ADMINS	=
 [
 	"76561198071078533", // Rogue
-	"76561198044511240", // Comrade
-	"76561198159209074", // Steven
 	"76561198018640903" // Winters
 ];
 
@@ -43,12 +42,6 @@ A_LIST_ADMINS	=
 
 A_LIST_MODS	= 
 [
-	"76561198101499715", // Rex
-	"76561198110382331", // Beans
-	"76561198069000590", // Elliot Wood
-	"76561198156107052", // Wade Murphy
-	"765611979848627193", // Cinematics
-	"76561198176287367", // Zerix/Jay
 	"76561198120523288", // Keegan
 	"76561198160921083", // Pasty
 	"76561198076888539", // King
@@ -56,7 +49,10 @@ A_LIST_MODS	=
 	"76561198055847202", // Captain
 	"76561198018733445", // ThePsychopath
 	"76561198093031647", // DefaultFun
-	"76561198153197001" // CheesyBanana
+	"76561198044975942", // JumpyWizard
+	"76561198102009531", // SlingShot
+	"76561198141845131", // Han Solo
+	"76561198062613863" // Maverick
 ];
 
 isDeveloper = (getPlayerUID player) in A_LIST_DEVS;

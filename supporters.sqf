@@ -194,7 +194,12 @@ supporters1 	  = [
 					"76561198261609103", // Jake Thompson
 					"76561198118946558", // Gregory Porter
 					"76561198141845131", // Han Solo
-					"76561198076888539" // King
+					"76561198076888539", // King
+					"76561198056681023", //Kim Jong Fun
+					"76561198410705354", // CrazyAsianPing
+					"76561198068846625", //Montel
+					"76561198090814902", //McCoy
+					"76561198022516829" //Abu Jasem
 		    ];
 
 // Remember the Array format! No comma on last item in array!
@@ -334,7 +339,12 @@ supporters2 	  = [
 					"76561198044975942", // JumpyWizard
 					"76561198135279464", // Masten24
 					"76561198806007204", // Haden
-					"76561198121649035" // Aaron
+					"76561198121649035", // Aaron
+					"76561198046194862", //Sliash
+					"76561198143514859", //Bob
+					"76561198089477398", //Sheev Palpatine
+					"76561198294202448", //Conor Thompson
+					"76561198015917318" //HonestAbbott
 			];
 
 // Remember the Array format! No comma on last item in array!
@@ -380,7 +390,7 @@ supporters3  	  = [
 				"76561198105821449", //Derpy Herpy derpderp
 				"76561198093692248", //Oooohkillem
 				"76561198114907761",  //Red-X Hunterizer
-				"76561198068357272" // Kane
+				"76561197989309496" // KingStone
 			];
 
 // Remember the Array format! No comma on last item in array!
@@ -421,6 +431,11 @@ supportersVIP     = [
 				"76561198044511240", //Comrade Potato
 				"76561198157505040", //StarBoSs
 				"76561198203697024", //Repchatyi Luchok
-				"76561198056681023", //Kim Jong Fun
-				"76561198022516829" //Abu Jasem
+				"76561198010528925", //Sw33tz
+				"76561198155614911", //Alex Mason
+				"76561198071703039", //Gen Richtovz
+				"76561198055543664", //Mark Stavaros
+				"76561198068357272", //Kane
+				"76561198114597817", //Nr7Shadow / Mr.Baggles
+				"76561198094294502" //Unknown
 			];
