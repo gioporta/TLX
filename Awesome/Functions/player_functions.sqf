@@ -669,6 +669,7 @@ player_rob_station = {
 	if (isNil "_station") exitWith {};
 	if (typeName _station != "SCALAR") exitWith {};
 
+	if ([west] call count_side < 3) exitwith { player groupchat "Robbing the bank requires 3 cops to be online." };
 	if (not([_player] call player_armed)) exitwith {
 		player groupchat "You need a gun to rob the station!";
 	};
