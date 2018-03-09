@@ -14,42 +14,7 @@ vipmoneh = 1000000;
 private["_uid"];
 _uid = getPlayerUID player;
 
-// if (_uid in supporters1) then {
-    // startmoneh = supportermoneh;
-// }
-// else { if (_uid in supporters2) then {
-    // startmoneh = silvermoneh;
-	// INV_CarryingCapacity = 100;
-// }
-// else { if (_uid in supporters3) then {
-    // startmoneh = goldmoneh;
-	// INV_CarryingCapacity = 200;
-// }
-// else { if (_uid in supporters4) then {
-	// INV_CarryingCapacity = 300;
-    // startmoneh = platinummoneh;
-// }
-// else { if (_uid in supportersVIP) then {
-    // startmoneh = VIPmoneh;
-	// INV_CarryingCapacity = 500;
-// };};};};};
-
-// if (isAdmins) then {
-	// INV_CarryingCapacity = 1000;
-// };
-
-//sleep 1;
-//player groupChat "Initializing Loading Player Stats If your stats has not yet loaded after this process please relog.";
-//sleep 1;
-hint "Loading Stats... Please Wait";
-//player groupChat "Loading";
-//Requests info from server in order to download stats
-//player groupChat "Loading. .";
-//hint "Stats Loading 10%";
-//player groupChat "Loading. . .";
-//sleep 1;
-//hint "Stats Loading 20%";
-//hint "Stats Loading";
+systemChat "Loading database stats, please wait.";
 
 sleep 2;
 switch (playerSide) do
@@ -132,16 +97,40 @@ switch (playerSide) do
 	};
 };
 
-sleep 8;
-player groupChat "Player Stats Loading Complete. If your stats have not yet loaded please relog immediately or risk losing your previous stats";
+[player, _uid, "Supporter_Level", "SCALAR"] call persSendToServer;
+[player, _uid, "Staff_Level", "SCALAR"] call persSendToServer;
+[player, _uid, "Blufor_Level", "SCALAR"] call persSendToServer;
+[player, _uid, "Opfor_Level", "SCALAR"] call persSendToServer;
 
-hint "Loading COMPLETE!";
 sleep 10;
+
+if (isNil "sup_level_loaded") then {
+	systemChat "Could not find Supporter level. Setting to 0.";
+	Supporter_Level = 0;
+};
+if (isNil "staff_level_loaded") then {
+	systemChat "Could not find Staff level. Setting to 0.";
+	Staff_Level = 0;
+};
+if (isNil "blufor_level_loaded") then {
+	systemChat "Could not find Blufor level. Setting to 0.";
+	Blufor_Level = 0;
+};
+if (isNil "opfor_level_loaded") then {
+	systemChat "Could not find Opfor level. Setting to 0.";
+	Opfor_Level = 0;
+};
 if (isNil "bankstatsareloaded") then {
-        player groupChat "No bank account stats found. Setting default starting money.";
-		[player, startmoneh] call set_bank_valuez;
+	systemChat "No bank account stats found. Setting default starting money.";
+	[player, startmoneh] call set_bank_valuez;
 };
 statsLoaded = 1;
+
+systemChat "Stat loading complete.";
+
+if (isNil "bankstatsareloaded") then {
+	systemChat "If your stats have not loaded, please relog immediately.";
+};
 
 if ((isSup) && !("supporter" call INV_HasLicense)) then {
 INV_LicenseOwner = INV_LicenseOwner + ["supporter"];
@@ -285,7 +274,7 @@ if((getPlayerUID player) in wolflicense) then {
 
 if (isDog) then {
 	server globalchat "Warning: You are going to loose all your gear!";
-	server globalchat "Warning: Dog's can't carry weapons!";
+	server globalchat "Warning: Dogs can't carry weapons!";
 
 	removeAllWeapons player;
 	player addWeapon "ItemMap";
@@ -295,13 +284,4 @@ if (isDog) then {
 	} else {
 		[player, "Fin", false] spawn C_change;
 	};
-};
-
-// Logging
-if ([player] call player_get_factory_money > 1000000) then {
-	["STAT LOAD LOGGER", str (name player), " HAS ", _amount, " IN FACTORY STORAGE"] call fn_LogToServer;
-};
-
-if ([player] call player_get_private_storage_money > 1000000) then {
-	["STAT LOAD LOGGER", str (name player), " HAS ", _amount, " IN PRIVATE STORAGE"] call fn_LogToServer;
 };

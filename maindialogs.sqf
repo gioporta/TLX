@@ -62,6 +62,11 @@ if (_art == "spielerliste") then {
 	(_DFML displayCtrl 1)	lbAdd format ["%1: %2 seconds",    "Dead-Wait time", round(_dead_wait_time)];
 	
 	if ( isCiv ) then { (_DFML displayCtrl 1) lbAdd format ["%1: %2",    "Demerit points", demerits]};
+	
+	(_DFML displayCtrl 1)	lbAdd format ["Staff Level: %1", strM(Staff_Level)];
+	(_DFML displayCtrl 1)	lbAdd format ["Supporter Level: %1", strM(Supporter_Level)];
+	(_DFML displayCtrl 1)	lbAdd format ["Blufor Level: %1", strM(Blufor_Level)];
+	(_DFML displayCtrl 1)	lbAdd format ["Opfor Level: %1", strM(Opfor_Level)];
 
 	(_DFML displayCtrl 1)	lbAdd _trennlinie;
 	(_DFML displayCtrl 1)	lbAdd localize "STRS_statdialog_licenselist";

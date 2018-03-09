@@ -1,4 +1,4 @@
-private["_loadFromDBClient", "_sendToServer"];
+private["_loadFromDBClient", "_loadPersistent", "_sendToServer"];
 
 _loadFromDBClient =
 "
@@ -6,7 +6,6 @@ _loadFromDBClient =
 	_array = _this;
 	_uid = _array select 0;
 	if((getplayerUID player) != _uid) exitWith {};
-	player commandChat format ['Stats found, Loading... please wait'];
 	_varName = _array select 1;
 	_varValue = _array select 2;
 	_success = _array select 3;
@@ -14,7 +13,6 @@ _loadFromDBClient =
 	if(playerSide == west) then {
 		if(_success) then {
 			if(_varName == 'moneyAccountWest') then {
-				player commandChat format ['Bank account West found. Loading!'];
 				[player, _varValue] call set_bank_valuez;
 				bankstatsareloaded = true;
 			};
@@ -42,7 +40,6 @@ _loadFromDBClient =
 	if(playerSide == east) then {
 		if(_success) then {
 			if(_varName == 'moneyAccountEast') then {
-				player commandChat format ['Bank account East found. Loading!'];
 				[player, _varValue] call set_bank_valuez;
 				bankstatsareloaded = true;
 			};
@@ -70,7 +67,6 @@ _loadFromDBClient =
 	if(playerSide == resistance) then {
 		if(_success) then {
 			if(_varName == 'moneyAccountRes') then {
-				player commandChat format ['Bank account Resistance found. Loading!'];
 				[player, _varValue] call set_bank_valuez;
 				bankstatsareloaded = true;
 			};
@@ -98,7 +94,6 @@ _loadFromDBClient =
 	if(playerSide == civilian) then {
 		if(_success) then {
 			if(_varName == 'moneyAccountCiv') then {
-				player commandChat format ['Bank account Civilian found. Loading!'];
 				[player, _varValue] call set_bank_valuez;
 				bankstatsareloaded = true;
 			};
@@ -125,7 +120,45 @@ _loadFromDBClient =
 	};
 ";
 
+_loadPersistent =
+"
+	private['_array','_varName','_varValue', '_uid', '_success'];
+	_array = _this;
+	_uid = _array select 0;
+	if((getplayerUID player) != _uid) exitWith {};
+	_varName = _array select 1;
+	_varValue = _array select 2;
+	_success = _array select 3;
+	
+	if (!_success) exitWith {};
+	
+	if(_varName == 'Supporter_Level') then {
+		diag_log format ['Found supporter level: %1', _varValue];
+		Supporter_Level = _varValue;
+		sup_level_loaded = true;
+	};
+	
+	if(_varName == 'Staff_Level') then {
+		diag_log format ['Found staff level: %1', _varValue];
+		Staff_Level = _varValue;
+		staff_level_loaded = true;
+	};
+	
+	if(_varName == 'Blufor_Level') then {
+		diag_log format ['Found blufor level: %1', _varValue];
+		Blufor_Level = _varValue;
+		blufor_level_loaded = true;
+	};
+	
+	if(_varName == 'Opfor_Level') then {
+		diag_log format ['Found opfor level: %1', _varValue];
+		Opfor_Level = _varValue;
+		opfor_level_loaded = true;
+	};
+";
+
 loadFromDBClient = compile _loadFromDBClient;
+loadPersistent = compile _loadPersistent;
 //===========================================================================
 _sendToServer =
 "
@@ -134,10 +167,22 @@ _sendToServer =
 ";
 
 sendToServer = compile _sendToServer;
+
+_persSendToServer =
+"
+	accountPersistentLoad = _this;
+	publicVariableServer 'accountPersistentLoad';
+";
+
+persSendToServer = compile _persSendToServer;
 //===========================================================================
 "accountToClient" addPublicVariableEventHandler
 {
 	(_this select 1) spawn loadFromDBClient;
+};
+"persAccountToClient" addPublicVariableEventHandler
+{
+	(_this select 1) spawn loadPersistent;
 };
 //===========================================================================
 statFunctionsLoaded = 1;
