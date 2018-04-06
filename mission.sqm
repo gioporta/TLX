@@ -51700,7 +51700,7 @@ class Mission
 		};
 		class Item114
 		{
-			position[]={6576.7349,62.105965,11364.128};
+			position[]={6529.1777,61.472321,11317.249};
 			name="patrolpoint10";
 			type="Empty";
 			angle=25.172237;
