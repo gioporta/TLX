@@ -9,20 +9,6 @@ if (_label == "text") then
 {
 
 sleep 3;
-switch (true) do {
-	case (side player == west): {
-    playsound "copintro";
-  };
-  case (side player == east): {
-    playsound "opfintro";
-  };
-  case (side player == resistance): {
-    playsound "indintro";
-  };
-  default {
-		playsound "intro";
-	};
-};
 disableUserInput false;
 titletext [localize "STRS_anfang_02","plain"];
 sleep 8;

@@ -12,7 +12,7 @@ while {true} do
 		case west:
 		{
 			[_uid, ["moneyAccountWest", ([player] call get_bank_valuez)], ["InventoryWest", ([player] call player_get_inventory)], ["positionPlayerWest", ASLtoATL (getPosASL player)], ["BackpackPlayerWest", typeOf unitBackpack player], ["BackWepPlayerWest", getWeaponCargo (unitBackpack player)], ["BackMagPlayerWest", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
-			[_uid, "MagazinesPlayerWest", ((magazines player) - ["15Rnd_9x19_M9SD"])] call fn_SaveToServer; sleep 0.1;
+			[_uid, "MagazinesPlayerWest", (magazines player)] call fn_SaveToServer; sleep 0.1;
 			if(count INV_LicenseOwner > 0) then {
 				[_uid, ["privateStorageWest", ([player, "private_storage"] call player_get_array)], ["LicensesWest", INV_LicenseOwner], ["WeaponsPlayerWest", weapons player], ["FactoryWest", INV_Fabrikowner]] call fn_SaveAggToServer; sleep 0.1;
 			}
@@ -25,7 +25,7 @@ while {true} do
 		case east:
 		{
 			[_uid, ["moneyAccountEast", ([player] call get_bank_valuez)], ["InventoryEast", ([player] call player_get_inventory)], ["positionPlayerEast", ASLtoATL (getPosASL player)], ["BackpackPlayerEast", typeOf unitBackpack player], ["BackWepPlayerEast", getWeaponCargo (unitBackpack player)], ["BackMagPlayerEast", getMagazineCargo (unitBackpack player)]] call fn_SaveAggToServer; sleep 0.1;
-			[_uid, "MagazinesPlayerEast", ((magazines player) - ["15Rnd_9x19_M9SD"])] call fn_SaveToServer; sleep 0.1;
+			[_uid, "MagazinesPlayerEast", (magazines player)] call fn_SaveToServer; sleep 0.1;
 			if(count INV_LicenseOwner > 0) then {
 				[_uid, ["privateStorageEast", ([player, "private_storage"] call player_get_array)], ["LicensesEast", INV_LicenseOwner], ["WeaponsPlayerEast", weapons player], ["FactoryEast", INV_Fabrikowner]] call fn_SaveAggToServer; sleep 0.1;
 			}
